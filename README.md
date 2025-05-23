@@ -1,54 +1,55 @@
-# React + TypeScript + Vite
+# 🎯 Trivio – The Smart React Quiz App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **Trivio**, a responsive and interactive quiz application built with **React**. Challenge your knowledge with trivia questions powered by [Open Trivia Database](https://opentdb.com/), track your score, race against time, and even resume your quiz after closing the browser!
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+✅ **User Authentication**  
+Simple login system to personalize quiz sessions.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🧠 **Dynamic Trivia Questions**  
+Questions fetched in real-time from [OpenTDB](https://opentdb.com/). Mix of categories, difficulty levels, and types.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+🕐 **Timer-Based Challenge**  
+Set your own quiz duration and test your knowledge under pressure!
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+📄 **One Question Per Screen**  
+Clean and focused UI — each question is shown individually, moving automatically after an answer is selected.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+📊 **Live Progress Tracking**  
+Displays total number of questions, answered count, and results summary (correct, incorrect, attempted).
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+💾 **Resume Quiz on Browser Reopen** *(Bonus Feature!)*  
+State is saved in `localStorage`, so users can resume where they left off — even after closing the tab!
+
+📱 **Fully Responsive UI**  
+Mobile-friendly interface ensures a smooth experience across devices.
+
+---
+
+## 🚀 Tech Stack
+
+- ⚛️ React
+- 🛠️ React Hooks & Context API
+- 📦 Axios
+- 🧩 OpenTDB API
+- 💾 LocalStorage
+- 🎨 CSS (or Tailwind, styled-components – depending on your setup)
+
+---
+
+## 📸 Screenshots
+
+> *(Insert screenshots or GIFs here to showcase the login, quiz, timer, and results pages)*
+
+---
+
+## 🛠️ How to Run Locally
+
+```bash
+git clone https://github.com/yourusername/trivio.git
+cd trivio
+npm install
+npm start
