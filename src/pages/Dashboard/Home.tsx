@@ -1,3 +1,5 @@
+import QuizPage from "../../components/quizPage/QuizPage";
+
 export default function Home() {
   return (
     <>
@@ -18,6 +20,7 @@ export default function Home() {
             Generate New Quiz
           </a>
         </div>
+        <QuizPage />
       </div>
     </>
   );
