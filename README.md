@@ -36,7 +36,7 @@ Mobile-friendly interface ensures a smooth experience across devices.
 - 📦 Axios
 - 🧩 OpenTDB API
 - 💾 LocalStorage
-- 🎨 CSS (or Tailwind, styled-components – depending on your setup)
+- 🎨 Tailwind CSS And Material UI
 
 ---
 
