@@ -32,7 +32,7 @@ Mobile-friendly interface ensures a smooth experience across devices.
 ## 🚀 Tech Stack
 
 - ⚛️ React And TypeScript
-- 🛠️ React Hooks & Context API
+- 🛠️ React Hooks , Context API,TanStack Table
 - 📦 Axios
 - 🧩 OpenTDB API
 - 💾 LocalStorage
