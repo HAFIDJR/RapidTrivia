@@ -8,7 +8,7 @@ type Quiz = {
   thumbnail: string;
 };
 export const getQuizColumns = (
-  onClick: (id: number) => void
+  hanldeQuiz: (statusModal: boolean, idQuiz: number) => void
 ): ColumnDef<Quiz>[] => [
   {
     accessorKey: "title",
@@ -60,7 +60,7 @@ export const getQuizColumns = (
         <div className="relative h-[41px]">
           <div className="w-[120px] h-fit overflow-hidden absolute top-0  bg-white flex flex-col gap-3 border border-[#EEEEEE] transition-all duration-300 hover:shadow-[0_10px_16px_0_#0A090B0D] rounded-[18px]">
             <button
-              onClick={() => onClick(info.row.original.id)}
+              onClick={() => hanldeQuiz(true, info.row.original.id)}
               className="flex items-center justify-between font-bold text-sm w-full p-3 cursor-pointer"
             >
               Kerjakan Quiz

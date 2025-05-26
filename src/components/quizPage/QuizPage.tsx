@@ -7,6 +7,7 @@ import {
   flexRender,
 } from "@tanstack/react-table";
 import { getQuizColumns } from "./QuizColumn";
+import ModalCreateQuiz from "./modal/MocalCreateQuiz";
 
 const quizzes = Object.entries(categoryMap).map(([id, title]) => ({
   id: Number(id),
@@ -18,9 +19,14 @@ const quizzes = Object.entries(categoryMap).map(([id, title]) => ({
 
 export default function QuizPage() {
   // State Category Quiz
-  const [data, setData] = useState<number>(0);
+  const [idQuiz, setIdQuiz] = useState<number | null>(null);
+  const [open, setOpen] = useState(false);
 
-  const columns = getQuizColumns(setData);
+  function hanldeQuiz(statusModal: boolean, idQuiz: number) {
+    setOpen(statusModal);
+    setIdQuiz(idQuiz);
+  }
+  const columns = getQuizColumns(hanldeQuiz);
   const table = useReactTable({
     data: quizzes,
     columns,
@@ -28,15 +34,14 @@ export default function QuizPage() {
     getPaginationRowModel: getPaginationRowModel(),
     initialState: {
       pagination: {
-        pageSize: 5, // ← ubah angka ini sesuai kebutuhan
+        pageSize: 5,
       },
     },
   });
-  // State Dificult quiz
+
+  // State Dificult Quiz
+
   // State Jenis Quiz
-  if (categoryMap[data]) {
-    alert(categoryMap[data]);
-  }
 
   return (
     <div className="course-list-container flex flex-col px-5 mt-[30px] gap-[30px]">
@@ -86,6 +91,7 @@ export default function QuizPage() {
           </button>
         ))}
       </div>
+      <ModalCreateQuiz id={idQuiz} setOpen={setOpen} open={open} />
     </div>
   );
 }
