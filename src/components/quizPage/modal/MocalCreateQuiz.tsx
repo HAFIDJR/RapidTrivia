@@ -5,6 +5,7 @@ import { categoryMap } from "../../../data/categoryQuiz";
 import SelectDificult from "../input/SelectDificult";
 import SelectTypeAnswer from "../input/SelectTypeAnswer";
 import IconCreateButtons from "../button/Button";
+import { useState } from "react";
 
 const style = {
   position: "absolute",
@@ -22,7 +23,7 @@ const style = {
 
 type PropsModalCreateQuiz = {
   setOpen: (prop: boolean) => void;
-  id: number | null;
+  id: number;
   open: boolean;
 };
 
@@ -32,10 +33,11 @@ export default function ModalCreateQuiz({
   open,
 }: PropsModalCreateQuiz) {
   const handleClose = () => setOpen(false);
+  const [difficulty, setDificulty] = useState("");
+  const [typeAnswer, setTypeAnswer] = useState("");
   let nameQuiz = "";
-  if (id) {
-    nameQuiz = categoryMap[id];
-  }
+  nameQuiz = categoryMap[id];
+
   return (
     <div>
       <Modal
@@ -68,10 +70,14 @@ export default function ModalCreateQuiz({
             {id}
           </h1>
           <div className="flex gap-3">
-            <SelectDificult />
-            <SelectTypeAnswer />
+            <SelectDificult setDificulty={setDificulty} />
+            <SelectTypeAnswer setTypeAnswer={setTypeAnswer} />
           </div>
-          <IconCreateButtons />
+          <IconCreateButtons
+            idQuiz={id}
+            difficulty={difficulty}
+            typeAnswer={typeAnswer}
+          />
         </Box>
       </Modal>
     </div>
