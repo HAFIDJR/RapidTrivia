@@ -31,7 +31,7 @@ Mobile-friendly interface ensures a smooth experience across devices.
 
 ## 🚀 Tech Stack
 
-- ⚛️ React And TypeScript
+- ⚛️ React And TypeScript (FrontEnd) | Express Js And TypeScript (Back End Auth)
 - 🛠️ React Hooks , Context API,TanStack Table
 - 📦 Axios
 - 🧩 OpenTDB API
