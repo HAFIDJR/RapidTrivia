@@ -50,6 +50,27 @@ export default function SideBar() {
             );
           })}
         </ul>
+        <ul>
+          <li>
+            <h3 className="font-bold text-xs text-[#A5ABB2]">Logout</h3>
+          </li>
+
+          <li>
+            <button
+              onClick={() => {
+                localStorage.clear();
+              }}
+              className="p-[10px_16px] flex items-center gap-[14px] rounded-full h-11 transition-all duration-300 hover:bg-[#2B82FE] w-full mt-3 cursor-pointer"
+            >
+              <div>
+                <img src="assets/images/icons/security-safe.svg" alt="icon" />
+              </div>
+              <p className="font-semibold transition-all duration-300 hover:text-white">
+                Logout
+              </p>
+            </button>
+          </li>
+        </ul>
       </div>
     </div>
   );

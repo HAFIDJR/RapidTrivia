@@ -1,4 +1,13 @@
+import type { User } from "../service/auth";
+
 export default function HeaderLayout() {
+  let storedUser: User | null = null;
+
+  const dataUser = localStorage.getItem("user");
+  if (dataUser) {
+    storedUser = JSON.parse(dataUser) as User;
+    console.log(storedUser);
+  }
   return (
     <div id="menu-content" className="flex flex-col w-full pb-[10px]">
       <div className="nav flex justify-between p-5 border-b border-[#EEEEEE]">
@@ -34,8 +43,8 @@ export default function HeaderLayout() {
           <div className="h-[46px] w-[1px] flex shrink-0 border border-[#EEEEEE]"></div>
           <div className="flex gap-3 items-center">
             <div className="flex flex-col text-right">
-              <p className="text-sm text-[#7F8190]">Howdy</p>
-              <p className="font-semibold">Fany Alqo</p>
+              <p className="text-sm text-[#7F8190]">{storedUser?.fullname}</p>
+              <p className="font-semibold">{storedUser?.email}</p>
             </div>
             <div className="w-[46px] h-[46px]">
               <img src="assets/images/photos/default-photo.svg" alt="photo" />
