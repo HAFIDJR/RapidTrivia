@@ -1,14 +1,27 @@
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import type { QuizQuestion } from "../../service/quiz";
+import type { PropsIconCreateButtons } from "../../components/quizPage/button/Button";
 
-type LocationState = {
+export type QuizDetailState = {
   quizData: QuizQuestion[];
+  quizDetail: PropsIconCreateButtons;
 };
 
 export default function PreparationQuiz() {
   const location = useLocation();
-  const state = location.state as LocationState | undefined;
-  const quizData = state?.quizData;
+  const state = location.state as QuizDetailState;
+  const quizData = state.quizData;
+
+  const navigate = useNavigate();
+
+  const handleStart = () => {
+    localStorage.removeItem("quiz-timer");
+    localStorage.removeItem("quiz-current");
+    localStorage.removeItem("quiz-answers");
+    localStorage.removeItem("quiz-results");
+    localStorage.setItem("quiz-data", JSON.stringify(quizData));
+    navigate("/assessment");
+  };
 
   if (!quizData) {
     return <p>Data quiz tidak ditemukan.</p>;
@@ -43,9 +56,12 @@ export default function PreparationQuiz() {
           </div>
         </div>
         <div className="flex items-center">
-          <p className="p-[16px_20px] rounded-[10px] bg-[#06BC65] font-bold text-lg text-white outline-[#06BC65] outline-dashed outline-[3px] outline-offset-[7px] mr-[10px] cursor-pointer">
+          <button
+            onClick={() => handleStart()}
+            className="p-[16px_20px] rounded-[10px] bg-emerald-400 hover:bg-emerald-500 font-bold text-lg text-neutral-700 outline-[#06BC65] outline-dashed outline-[3px] outline-offset-[7px] mr-[10px] cursor-pointer"
+          >
             Kerjakan
-          </p>
+          </button>
         </div>
       </div>
 

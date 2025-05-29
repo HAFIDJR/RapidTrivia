@@ -19,7 +19,7 @@ const quizzes = Object.entries(categoryMap).map(([id, title]) => ({
 
 export default function QuizPage() {
   // State Category Quiz
-  const [idQuiz, setIdQuiz] = useState<number | null>(null);
+  const [idQuiz, setIdQuiz] = useState<number>(0);
   const [open, setOpen] = useState(false);
 
   function hanldeQuiz(statusModal: boolean, idQuiz: number) {

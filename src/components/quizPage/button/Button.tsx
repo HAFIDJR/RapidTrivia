@@ -4,7 +4,7 @@ import Stack from "@mui/material/Stack";
 import { fetchQuiz } from "../../../service/quiz";
 import { useNavigate } from "react-router";
 
-type PropsIconCreateButtons = {
+export type PropsIconCreateButtons = {
   idQuiz: number;
   difficulty: string;
   typeAnswer: string;
@@ -24,7 +24,16 @@ export default function IconCreateButtons({
     });
     if (result?.results?.length > 0) {
       // Redirect ke halaman persiapan sambil membawa data quiz
-      navigate("/preparation", { state: { quizData: result.results } });
+      navigate("/preparation", {
+        state: {
+          quizData: result.results,
+          detailQuiz: {
+            category: idQuiz,
+            difficulty: difficulty,
+            type: typeAnswer,
+          },
+        },
+      });
     } else {
       alert("Quiz tidak tersedia atau gagal diambil.");
     }
