@@ -38,12 +38,21 @@ export default function ResultQuiz() {
             <h1 className="font-extrabold text-[30px] leading-[45px]">
               {results.quizData[0].category}
             </h1>
-            <div className="flex items-center">
+            <div className="flex items-start flex-col gap-4">
               <div className="flex gap-[10px] items-center">
                 <div className="w-6 h-6 flex shrink-0">
                   <img src="assets/images/icons/note-text.svg" alt="icon" />
                 </div>
                 <p className="font-semibold">{results.score} of 10 correct</p>
+              </div>
+              <div className="flex gap-[10px] items-center">
+                <div className="w-6 h-6 flex shrink-0">
+                  <img src="assets/images/icons/note-text.svg" alt="icon" />
+                </div>
+                <h4 className="font-semibold">
+                  Jumlah Kuis Terjawab{" "}
+                  {results.answers.filter((val) => val != null).length}
+                </h4>
               </div>
             </div>
           </div>
